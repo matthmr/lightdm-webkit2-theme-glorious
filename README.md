@@ -1,6 +1,6 @@
 # glorious - a lightdm webkit2 theme
 
-my fork of the glorious theme made by [manilarome](https://github.com/manilarome).
+my fork of the glorious theme made by [manilarome](https://github.com/manilarome) primarily aimed toward desktop users.
 
 <br/>
 
@@ -93,8 +93,6 @@ There are two clock modes available - `24-hour` and `12-hour`. Switch between cl
 + Add more background images by putting your wallpapers/images in `/usr/share/backgrounds/`.
 + Non-image and directory inside `/usr/share/backgrounds/` will cause an error! You will likely encounter this if you installed a package (for example `archlinux-wallpaper` that includes `AUTHORS` file).
 + Set your profile image in system settings or by using `mugshot`.
-+ Missing DE/WM logo? Submit a [pull request](https://github.com/manilarome/lightdm-webkit2-theme-glorious/pulls)!
-+ Translations are not yet supported. PR's are welcome!
 
 <br/>
 
