@@ -66,7 +66,7 @@ class KeyBinds {
 
 	_updateKeyBindObj() {
 		this._keyBindObj = {
-			'defaultModifierKey': this._inputModifier.value || this._storageGetItem('defaultModifierKey') || 'Alt',
+			'defaultModifierKey': this._inputModifier.value || this._storageGetItem('defaultModifierKey') || 'Meta',
 			'defaultSidebarKey': this._inputSidebarKey.value || this._storageGetItem('defaultSidebarKey') || 's',
 			'defaultSessionKey': this._inputSessionsKey.value || this._storageGetItem('defaultSessionKey') || 'e',
 			'defaultPowerKey': this._inputPowerKey.value || this._storageGetItem('defaultPowerKey') || 'x',
@@ -166,7 +166,7 @@ class KeyBinds {
 
 	_resetKeyBindObj() {
 		this._keyBindObj = {
-			'defaultModifierKey': 'Alt',
+			'defaultModifierKey': 'Meta',
 			'defaultSidebarKey': 's',
 			'defaultSessionKey': 'e',
 			'defaultPowerKey': 'x',

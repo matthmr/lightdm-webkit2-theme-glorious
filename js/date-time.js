@@ -68,18 +68,12 @@ class DateTime {
 			greeterSuffix = 'Night';
 		}
 
-		// 24-hour mode
-		if (this._twentyFourMode === true) {
-			hour = this._appendZero(hour);
-			this._sidebarClock.innerText = `${hour}:${min}`;
-			this._greeterClock.innerText = `${hour}:${min}`;
-		} else {
-			// 12-hour mode
-			midDay = (hour >= 12) ? 'PM' : 'AM';
-			hour = (hour === 0) ? 12 : ((hour > 12) ? this._appendZero(hour - 12) : this._appendZero(hour));
-			this._sidebarClock.innerText = `${hour}:${min} ${midDay}`;
-			this._greeterClock.innerText = `${hour}:${min} ${midDay}`;
-		}
+		// 12-hour mode
+		midDay = (hour >= 12) ? 'PM' : 'AM';
+		hour = (hour === 0) ? 12 : ((hour > 12) ? this._appendZero(hour - 12) : this._appendZero(hour));
+		this._sidebarClock.innerText = `${hour}:${min} ${midDay}`;
+		this._greeterClock.innerText = `${hour}:${min} ${midDay}`;
+
 		this._sidebarDate.innerText = `${this._daysArr[date.getDay()]}, ${this._monthsArr[date.getMonth()]} ` +
 			`${this._appendZero(date.getDate())}, ${date.getFullYear()}`;
 		this._greeterDate.innerText = `${this._getDayOrdinal(this._appendZero(date.getDate()))} of ` +
@@ -99,26 +93,7 @@ class DateTime {
 		this._startClock();
 	}
 
-	_clockClickEvent() {
-		this._greeterClock.addEventListener(
-			'click',
-			() => {
-				console.log('toggle 24-hour clock mode');
-				this._updateClockMode();
-			}
-		);
-		this._sidebarClock.addEventListener(
-			'click',
-			() => {
-				console.log('toggle 24-hour clock mode');
-				this._updateClockMode();
-			}
-		);
-	}
-
 	_init() {
-		this._twentyFourMode = JSON.parse(this._localStorage.getItem('twentyFourMode')) || false;
 		this._startClock();
-		this._clockClickEvent();
 	}
 }

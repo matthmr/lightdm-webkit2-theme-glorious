@@ -19,6 +19,7 @@ class Sessions {
 		this._buttonScreenMainSessionImage.onerror = function() {
 			this.src = 'assets/sessions/session-default.png';
 		};
+		key == 'xinitrc'? key = 'dwm' : 0;
 		this._buttonScreenMainSessionLabel.innerText = key.toUpperCase();
 	}
 
@@ -75,7 +76,7 @@ class Sessions {
 					<img class='button-sidebar-item-image' id='button-sessions-item-image' draggable='false'
 						src='assets/sessions/${sessionKey}.png' onerror='this.src="assets/sessions/session-default.png"'></img>
 				</div>
-				<div class='button-sidebar-item-name' id='button-sessions-item-name'>${sessionName}</div>
+				<div class='button-sidebar-item-name' id='button-sessions-item-name'>${sessionName == 'xinitrc'? 'dwm': sessionName}</div>
 				`
 			);
 			let listItem = document.createElement('li');

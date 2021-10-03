@@ -58,7 +58,7 @@ class Authenticate {
 		setTimeout(
 			() => {
 				this._buttonAuthenticate.classList.remove('authentication-success');
-				lightdm.start_session_sync(String(sessions.getDefaultSession()));
+				lightdm.start_session(String(sessions.getDefaultSession()));
 				this._tooltipPassword.classList.remove('tooltip-success');
 			},
 			1000
