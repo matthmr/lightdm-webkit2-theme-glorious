@@ -1,6 +1,6 @@
 # glorious - a lightdm webkit2 theme
 
-my fork of the glorious theme made by [manilarome](https://github.com/manilarome) primarily aimed toward desktop users.
+my fork of the glorious theme made by [manilarome](https://github.com/manilarome) primarily aimed toward desktop users & downgraded a bit.
 
 <br/>
 
@@ -13,8 +13,6 @@ my fork of the glorious theme made by [manilarome](https://github.com/manilarome
 
 ## Dependencies
 
-Please make sure you don't have an ancient version of these.
-
 + lightdm
 + lightdm-webkit2-greeter
 
@@ -22,9 +20,9 @@ Please make sure you don't have an ancient version of these.
 
 ## Installation
 
-1. If you're using `systemd`, make sure that `lightdm.service` or `lightdm-plymouth.service` is enabled and running. There's a bunch of guides on the internet. [Archwiki](https://wiki.archlinux.org/index.php/LightDM) is recommended.
+1. `systemd` users have to run `systemctl enable lightdm.service`. Other init users do the equivalent to that.
 
-2. Install it. You can get the theme by cloning this fork (run as root):
+2. Clone and copy (run as root):
 	```sh
 	git clone 'https://github.com/matthmr/lightdm-webkit2-theme-glorious.git'
 	cp -r lightdm-webkit2-theme-glorious /usr/share/lightdm-webkit/themes/glorious
@@ -41,7 +39,7 @@ Please make sure you don't have an ancient version of these.
 	```
 	or to whatever name you gave it when copying it to `/usr/share/lightdm-webkit/themes/`.
 
-4. Set `debug_mode` still on lightdm-webkit's config file to `true`.<br/>You may encounter an error saying: "`An error was detected in the current theme that could interfere with the system login process.`".<br/>
+4. Set `debug_mode` still on lightdm-webkit's config file to `true`.<br/>You may encounter an error saying: "An error was detected in the current theme that could interfere with the system login process."<br/>
 If you're using pure **X** (e.g. by running *dwm*), that **might** be fixed by deleting `~/.Xauthority` (or making a backup, rather) and setting your `~/.xinitrc` executable (`chmod +x ~/.xinitrc`) if your window manager runs on `startx`. You also could change your lightdm config to `user-session = xinitrc`.
 
 
@@ -51,7 +49,7 @@ If you're using pure **X** (e.g. by running *dwm*), that **might** be fixed by d
 
 <br/>
 
-## Features
+## Features (kept from the original)
 
 + Multi-user support
 + Customization and Settings

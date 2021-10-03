@@ -7,19 +7,7 @@ class Authenticate {
 		this._passwordInputContainer = document.querySelector('#input-password-container');
 		this._tooltipPassword = document.querySelector('#tooltip-password');
 		this._password = '';
-		
 		this._init();
-		this._language = new Language;		
-	}
-
-	_returnRandomErrorMessages() {
-		const errorMessages = this._language._getErrorMessages();
-		return errorMessages[Math.floor(Math.random() * errorMessages.length)];	
-	}
-
-	_returnRandomSuccessfulMessages() {
-		const errorMessages = this._language._getSuccessfulMessages();
-		return errorMessages[Math.floor(Math.random() * errorMessages.length)];
 	}
 
 	// Start authentication
@@ -56,7 +44,7 @@ class Authenticate {
 		
 		// Success messages
 		this._passwordBox.classList.add('authentication-success');
-		this._tooltipPassword.innerText = this._returnRandomSuccessfulMessages();
+		this._tooltipPassword.innerText = "Access Granted"
 		this._tooltipPassword.classList.add('tooltip-success');
 
 		setTimeout(
@@ -69,10 +57,8 @@ class Authenticate {
 		// Add a delay before unlocking
 		setTimeout(
 			() => {
-				var defSession = String(sessions.getDefaultSession());
-				console.log(defSession);
 				this._buttonAuthenticate.classList.remove('authentication-success');
-				lightdm.start_session(defSession);
+				lightdm.start_session_sync(String(sessions.getDefaultSession()));
 				this._tooltipPassword.classList.remove('tooltip-success');
 			},
 			1000
@@ -95,7 +81,7 @@ class Authenticate {
 
 		// Error messages/UI
 		this._passwordBox.classList.add('authentication-failed');
-		this._tooltipPassword.innerText = this._returnRandomErrorMessages();
+		this._tooltipPassword.innerText = "Access Denied";
 		this._tooltipPassword.classList.add('tooltip-error');
 
 		// Shake animation
@@ -114,8 +100,6 @@ class Authenticate {
 		this._buttonAuthenticate.addEventListener(
 			'click',
 			() => {
-				//console.log(lightdm.in_authentication);
-				//console.log("Auth: " + lightdm.is_authenticated);
 				this._authFailedRemove();
 				this._password = this._passwordInput.value;
 				lightdm.respond(String(this._password));
